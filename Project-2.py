@@ -36,5 +36,3 @@ def get_flights(airline_icao: str = None, aircraft_type: str = None, bounds: int
     """
     flights = fr_api.get_flights(airline=airline_icao, aircraft_type=aircraft_type, bounds=bounds, registration=aircraft_registration)
     return flights
-
-print(get_flights())
