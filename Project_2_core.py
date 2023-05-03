@@ -4,7 +4,7 @@ from abc import ABC
 class Core(ABC):
     """
     Base class for Flightradar24 API requests.
-
+    Source is https://github.com/JeanExtreme002/FlightRadarAPI/core.py
     This class defines the base URLs and headers for HTTP requests to the Flightradar24 API.
     """
 

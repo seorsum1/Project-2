@@ -1,6 +1,12 @@
 from Project_2_core import Core
+from typing import List
 import requests
 
+"""
+Project 2 for CSCI1620 at UNOmaha.
+Initial idea from https://github.com/JeanExtreme002/FlightRadarAPI, using their core.py file as Project_2_core.py pointers for URLs
+Project_2.py is all my own work
+"""
 
 class GetData(object):
     """
@@ -38,7 +44,7 @@ class SearchData(object):
     """
     A class for searching flight and airport data obtained from the Flightradar24 API.
     """
-    def data_search(field: str, input: any, data: dict) -> dict:
+    def data_search(field: str, input: any, data: dict[str, list]) -> dict:
         """
         Searches for a specific value in a dictionary based on a given field.
 
@@ -47,27 +53,35 @@ class SearchData(object):
         :param data: A dictionary representing the data to search in.
 
         Returns:
-            A dictionary containing the key and value of the first item in the dictionary with a matching field and value,
-            or None if no matches are found.
+            A dictionary containing all items in the dictionary with a matching field and value, where the keys are the
+        original dictionary keys and the values are the corresponding values of the matching items. Returns an empty
+        dictionary if no matches are found.
         """
+        results = {}
         for key, value in data.items():
             if value[field] == input:
-                return [key, value]
-        return None
+                results[key] = value
+        return results
 
     
     def airport_name_search(airport_name: str) -> dict:
         """
-        Searches for an airport by its name.
-
+        Searches for all airports whose name contains a given string.
+        
         :param airport_name: A string representing the name (or partial name) of the airport to search for.
 
         Returns:
-            A dictionary containing the airport code and information about the requested airport,
-            or None if no matches are found.
+            A dictionary containing all airports whose name contains the specified string,
+        where the keys are the airport codes and the values are the information about the airports.
+        Returns an empty dictionary if no matches are found.
         """
+        results = {}
         for key, value in GetData.airports_by_icao.items():
-            if airport_name.lower() in value['name'].lower():
-                return [key, value]
-        return None
+            if airport_name in value['name']:
+                results[key] = value
+        return results
     
+flight = SearchData.data_search(Core.flights_header['callsign'], '',GetData.flights)
+list1 = list(flight.keys())
+flight_info = GetData.get_flight_info(list1[0])
+print(flight_info.keys())
