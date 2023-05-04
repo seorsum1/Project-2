@@ -35,7 +35,7 @@ class GetData(object):
         """
         
         flight_url = Core.flight_data_url + flight_id
-        flight_request = requests.get(flight_url)
+        flight_request = requests.get(flight_url, headers=Core.json_headers)
         flight_info: dict = flight_request.json()
         return flight_info
 
@@ -63,6 +63,24 @@ class SearchData(object):
                 results[key] = value
         return results
 
+    def callsign_search(field: str, input: any, data: dict[str, list]) -> dict:
+        """
+        Searches for a specific value in a dictionary based on a given field.
+
+        :param field: A string representing the field of the selected dictionary to search for.
+        :param input: The value to search for, can be any type.
+        :param data: A dictionary representing the data to search in.
+
+        Returns:
+            A dictionary containing all items in the dictionary with a matching field and value, where the keys are the
+        original dictionary keys and the values are the corresponding values of the matching items. Returns an empty
+        dictionary if no matches are found.
+        """
+        results = {}
+        for key, value in data.items():
+            if input in value[field]:
+                results[key] = value
+        return results
     
     def airport_name_search(airport_name: str) -> dict:
         """
@@ -87,13 +105,3 @@ class SearchData(object):
         for tuple in flights_list:
             ordered_list.append([tuple[0], tuple[1][16], tuple[1][18], tuple[1][11], tuple[1][12], tuple[1][9], tuple[1][8], tuple[1][1], tuple[1][2], tuple[1][4], tuple[1][3], tuple[1][5]])
         return ordered_list
-
-    
-# flight = SearchData.data_search(Core.flights_header['callsign'], '',GetData.flights)
-
-# list2 = (SearchData.flights_list(flight))
-# print(type(list2))
-
-# list1 = list(flight.keys())
-# flight_info = GetData.get_flight_info(list1[0])
-# print(flight_info.keys())

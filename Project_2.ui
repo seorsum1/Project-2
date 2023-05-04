@@ -30,7 +30,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Segoe UI Semibold</family>
+    <family>Courier</family>
     <pointsize>10</pointsize>
    </font>
   </property>
@@ -41,7 +41,7 @@
    <widget class="QComboBox" name="field_dropdown">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>400</x>
       <y>60</y>
       <width>160</width>
       <height>20</height>
@@ -51,9 +51,9 @@
    <widget class="QLabel" name="field_label">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>80</x>
       <y>60</y>
-      <width>230</width>
+      <width>300</width>
       <height>20</height>
      </rect>
     </property>
@@ -64,7 +64,7 @@
    <widget class="QLineEdit" name="query_entry">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>400</x>
       <y>100</y>
       <width>160</width>
       <height>20</height>
@@ -74,9 +74,9 @@
    <widget class="QLabel" name="query_label">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>270</x>
       <y>100</y>
-      <width>80</width>
+      <width>100</width>
       <height>20</height>
      </rect>
     </property>
@@ -100,7 +100,7 @@
    <widget class="QCheckBox" name="location_checkBox">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>180</x>
       <y>150</y>
       <width>180</width>
       <height>20</height>
@@ -113,7 +113,7 @@
    <widget class="QComboBox" name="location_dropdown">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>380</x>
       <y>150</y>
       <width>180</width>
       <height>20</height>
@@ -123,7 +123,7 @@
    <widget class="QCommandLinkButton" name="submit_button">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>330</x>
       <y>200</y>
       <width>90</width>
       <height>40</height>
@@ -138,7 +138,7 @@
      <rect>
       <x>600</x>
       <y>60</y>
-      <width>80</width>
+      <width>91</width>
       <height>20</height>
      </rect>
     </property>
@@ -165,9 +165,9 @@
    <widget class="QPushButton" name="flight_button_1">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>610</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -178,9 +178,9 @@
    <widget class="QPushButton" name="flight_button_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>640</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -191,9 +191,9 @@
    <widget class="QPushButton" name="flight_button_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>670</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -204,9 +204,9 @@
    <widget class="QPushButton" name="flight_button_4">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>700</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -217,9 +217,9 @@
    <widget class="QPushButton" name="flight_button_5">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>730</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -230,9 +230,9 @@
    <widget class="QPushButton" name="flight_button_6">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>760</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -243,9 +243,9 @@
    <widget class="QPushButton" name="flight_button_7">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>790</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -256,9 +256,9 @@
    <widget class="QPushButton" name="flight_button_8">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>820</y>
-      <width>60</width>
+      <width>80</width>
       <height>20</height>
      </rect>
     </property>
@@ -396,7 +396,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
