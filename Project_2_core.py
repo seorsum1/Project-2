@@ -8,34 +8,15 @@ class Core(ABC):
     This class defines the base URLs and headers for HTTP requests to the Flightradar24 API.
     """
 
-
-    # Base URLs.
-    cdn_flightradar_base_url: str = "https://cdn.flightradar24.com"
-    flightradar_base_url: str = "https://www.flightradar24.com"
+    # Base URL.
     data_live_base_url: str = "https://data-live.flightradar24.com"
 
     # Flights data URLs.
     real_time_flight_tracker_data_url: str = data_live_base_url + "/zones/fcgi/feed.js"
     flight_data_url: str = data_live_base_url + "/clickhandler/?flight="
     
-    # Airports data URLs.
-    airport_data_url: str = flightradar_base_url + "/airports/traffic-stats/?airport="
-    airports_data_url: str = flightradar_base_url + "/_json/airports.php"
-
-    # Airlines data URL.
-    airlines_data_url: str = flightradar_base_url + "/_json/airlines.php"
-
-    # Zones data URL.
-    zones_data_url: str = flightradar_base_url + "/js/zones.js.php"
-
-    # Country flag image URL.
-    country_flag_url: str = flightradar_base_url + "/static/images/data/flags-small/{}.gif"
-
-    # Airline logo image URL.
-    airline_logo_url: str = cdn_flightradar_base_url + "/assets/airlines/logotypes/{}_{}.png"
-    alternative_airline_logo_url: str = flightradar_base_url + "/static/images/data/operators/{}_logo0.png"
-
-    headers: dict[str, str] = {
+    json_headers: dict[str, str] = {
+        "accept": "application/json",
         "accept-encoding": "gzip, br",
         "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
@@ -47,12 +28,6 @@ class Core(ABC):
         "user-agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
     }
 
-    json_headers: dict[str, str] = headers.copy()
-    json_headers["accept"] = "application/json"
-
-    image_headers: dict[str, str] = headers.copy()
-    image_headers["accept"] = "image/gif, image/jpg, image/jpeg, image/png"
-    
     flights_header: dict[str, int] = {
         "icao_24bit" : 0,
         "latitude" : 1,
@@ -70,4 +45,12 @@ class Core(ABC):
         "vertical_speed" :15,
         "callsign" : 16,
         "airline_icao" : 18,
+    }
+
+    locations: dict[str, list[float]] = {
+        #"Location" : ['lat1', 'lon1', 'lat2', 'lon2'],
+        "Nebraska": [42.921, -103.99, 40.001, -95.314],
+        "North America": [68.931, -169.176, 15.435, -63.781],
+        "Europe": [66.417, -27.452, 35.038, 35.709],
+        "Asia": [52.611, 78.789, -11.687, 154.112],
     }

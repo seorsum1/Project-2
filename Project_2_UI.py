@@ -36,12 +36,13 @@ class Ui_MainWindow(object):
         self.field_dropdown.setGeometry(QtCore.QRect(400, 60, 160, 20))
         self.field_dropdown.setObjectName("field_dropdown")
         
+        self.field_dropdown.addItem("")
         self.field_dropdown.addItem("Callsign")
         self.field_dropdown.addItem("Aircraft Type")
         self.field_dropdown.addItem("Origin")
         self.field_dropdown.addItem("Destination")
         self.field_dropdown.addItem("Registration")
-        self.field_dropdown.setCurrentIndex(1)
+        self.field_dropdown.setCurrentIndex(0)
         
         self.field_label = QtWidgets.QLabel(self.centralwidget)
         self.field_label.setGeometry(QtCore.QRect(80, 60, 300, 20))
@@ -60,6 +61,10 @@ class Ui_MainWindow(object):
         self.results_label_1.setText("")
         self.results_label_1.setObjectName("results_label_1")
         
+        self.whole_checkBox = QtWidgets.QCheckBox(self.centralwidget)
+        self.whole_checkBox.setGeometry(QtCore.QRect(380, 120, 180, 20))
+        self.whole_checkBox.setObjectName("whole_checkBox")
+        
         self.location_checkBox = QtWidgets.QCheckBox(self.centralwidget)
         self.location_checkBox.setGeometry(QtCore.QRect(180, 150, 180, 20))
         self.location_checkBox.setObjectName("location_checkBox")
@@ -67,6 +72,13 @@ class Ui_MainWindow(object):
         self.location_dropdown = QtWidgets.QComboBox(self.centralwidget)
         self.location_dropdown.setGeometry(QtCore.QRect(380, 150, 180, 20))
         self.location_dropdown.setObjectName("location_dropdown")
+        
+        self.location_dropdown.addItem("")
+        self.location_dropdown.addItem("Nebraska")
+        self.location_dropdown.addItem("North America")
+        self.location_dropdown.addItem("Europe")
+        self.location_dropdown.addItem("Asia")
+        self.location_dropdown.setCurrentIndex(0)
         
         self.submit_button = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.submit_button.setGeometry(QtCore.QRect(330, 200, 90, 40))
@@ -168,17 +180,12 @@ class Ui_MainWindow(object):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1200, 22))
         self.menubar.setObjectName("menubar")
-        self.menuFile = QtWidgets.QMenu(self.menubar)
-        self.menuFile.setObjectName("menuFile")
         
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        self.actionExit = QtWidgets.QAction(MainWindow)
-        self.actionExit.setObjectName("actionExit")
-        self.menuFile.addAction(self.actionExit)
-        self.menubar.addAction(self.menuFile.menuAction())
+
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -188,6 +195,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "FlightRadar24 Tool"))
         self.field_label.setText(_translate("MainWindow", "Which field would you like to query?"))
         self.query_label.setText(_translate("MainWindow", "Enter query:"))
+        self.whole_checkBox.setText(_translate("MainWindow", "Match whole query?"))
         self.location_checkBox.setText(_translate("MainWindow", "Limit Results By Location?"))
         self.submit_button.setText(_translate("MainWindow", "Submit"))
         self.flight_info_label.setText(_translate("MainWindow", "Flight Info"))
@@ -202,5 +210,3 @@ class Ui_MainWindow(object):
         self.flight_button_8.setText(_translate("MainWindow", "Flight 8"))
         self.flight_data_label.setText(_translate("MainWindow", "Submit a query and select a flight to view more infomation!"))
         self.results_label_0.setText(_translate("MainWindow", "Callsign  |  Airline  |  Origin  |  Dest  |  Reg       |  Type    |  Lat   |  Long   |  Alt    |  Hdg  |  Spd  |"))
-        self.menuFile.setTitle(_translate("MainWindow", "File"))
-        self.actionExit.setText(_translate("MainWindow", "Exit"))
