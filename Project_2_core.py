@@ -28,6 +28,7 @@ class Core(ABC):
         "user-agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
     }
 
+    # Dictionary to point query to correct index location
     flights_header: dict[str, int] = {
         "icao_24bit" : 0,
         "latitude" : 1,
@@ -47,6 +48,7 @@ class Core(ABC):
         "airline_icao" : 18,
     }
 
+    # Latitudes and longitudes for location based filter
     locations: dict[str, list[float]] = {
         #"Location" : ['lat1', 'lon1', 'lat2', 'lon2'],
         "Nebraska": [42.921, -103.99, 40.001, -95.314],
